@@ -1,0 +1,44 @@
+{
+    "extends": ["eslint:recommended", "airbnb-base"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true
+    },
+    "plugins": ["react"],
+    "rules": {
+        "no-trailing-spaces": 0,
+        "id-blacklist": [2, "err", "r", "re", "res", "resp"],
+        "quotes": [2, "single"],
+        "semi": [2, "always"],
+        "func-names": [2, "always"],
+        "consistent-return": 0,
+        "no-param-reassign": 1,
+        "comma-dangle": 0,
+        "no-mixed-operators": 0,
+        "no-unused-vars": [2, {
+            "varsIgnorePattern": "React|Styles"
+        }],
+        "object-curly-newline": [2, {
+            "consistent": true
+        }],
+        "class-methods-use-this": 0,
+        "function-paren-newline": 0,
+        "prefer-template": 0,
+        "no-alert": 0,
+        "no-console": 0,
+        "import/extensions": 0,
+        "import/no-unresolved": 0,
+        "import/no-duplicates": 0,
+        "import/no-extraneous-dependencies": 0,
+        "react/jsx-uses-vars": 2,
+        "jsx-quotes": [2, "prefer-single"],
+        "no-await-in-loop": 0
+    }
+}

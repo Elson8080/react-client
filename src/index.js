@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { ConfigProvider } from 'antd';
+import ZHCN from 'antd/lib/locale-provider/zh_CN';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Index from './pages/home/index';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const MContext = React.createContext('GLOBAL_CONTEXT');
+
+class App extends Component {
+  loadUserData = () => {
+    // do something globally
+  }
+
+  render() {
+    return (
+      <ConfigProvider locale={ZHCN}>
+        <MContext.Provider value={this}>
+          <Router>
+            <Switch>
+              <Route path='/' component={Index}></Route>
+            </Switch>
+          </Router>
+        </MContext.Provider>
+      </ConfigProvider>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
